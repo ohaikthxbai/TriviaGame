@@ -17,8 +17,8 @@ display an *introduction* to the game
 have the user *start the game* by *pressing a button*
 	randomly generate and display a question
 	display the timer, counting down... 30 secs?
-	(game timer) allow game to be played for x minutes. (2? 3? 5?)
-	ORRRRRRR add time for ever correct answer. (hmmmm)
+	(game timer) allow game to be played for x minutes. (2? 3? 5?) -- future goal
+	ORRRRRRR add time for every correct answer. -- future goal
 		when game timer's up, display *results*
 			results:
 				questions:
@@ -40,14 +40,104 @@ have the user *start the game* by *pressing a button*
 // change this name once theme is determined
 var trivialTrivia = {
 	// key:value pairs
+
+	// correct answer count
 	qRight: 0,
+	// wrong answer count
 	qWrong: 0,
+	// question counter
 	qCount: 0,
+	// unanswered question count
 	qSkip: 0,
-	qTotal: 0,
-	gameTimer: 0,
+	// timer for each question
 	qTimer: 0,
-	qArray: []
-};
+	// array of questions
+	qArray: [
+	// each element in the array will be an object
+	// containing the question, choices, and correct answer
+	{	// 1
+		question: "Test Question",
+		choices: ["zero", "one", "two", "three"],
+		answer: "one"
+	},
+
+	{	// 2
+		question: "Test Question",
+		choices: ["zero", "one", "two", "three"],
+		answer: "two"
+	},
+
+	{	// 3
+		question: "Test Question",
+		choices: ["zero", "one", "two", "three"],
+		answer: "zero"
+	},	
+
+	{	// 4
+		question: "Test Question",
+		choices: ["zero", "one", "two", "three"],
+		answer: "three"
+	},
+
+	{	// 5
+		question: "Test Question",
+		choices: ["zero", "one", "two", "three"],
+		answer: "one"
+	},
+
+	{	// 6
+		question: "Test Question",
+		choices: ["zero", "one", "two", "three"],
+		answer: "one"
+	},
+
+	{	// 7
+		question: "Test Question",
+		choices: ["zero", "one", "two", "three"],
+		answer: "three"
+	},
+
+	{	// 8
+		question: "Test Question",
+		choices: ["zero", "one", "two", "three"],
+		answer: "zero"
+	},	
+
+	{	// 9
+		question: "Test Question",
+		choices: ["zero", "one", "two", "three"],
+		answer: "two"
+	},
+
+	{	// 10
+		question: "Test Question",
+		choices: ["zero", "one", "two", "three"],
+		answer: "zero"
+	}
+
+	]
+}
+
+// FUNCTIONS
+
+// starting the game
+var letsPlay = function() {
+
+}
+
+// display the current question
+var qDisplay = function() {
+
+}
+
+// checks the player's selection
+var qCheck = function() {
+
+}
+//testing
+//for (i = 0; i < trivialTrivia.qArray.length; i++)
+//console.log(trivialTrivia.qArray[i]);
+var qRandom = trivialTrivia.qArray[Math.floor((Math.random() * trivialTrivia.qArray.length))];
+console.log(qRandom);
 
 //})
