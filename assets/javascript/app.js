@@ -51,6 +51,7 @@ var trivialTrivia = {
 	qSkip: 0,
 	// timer for each question
 	qTimer: 0,
+	tTimer: '',
 	// array of questions
 	qArray: [
 	// each element in the array will be an object
@@ -84,7 +85,7 @@ var trivialTrivia = {
 		choices: ["zero", "one", "two", "three"],
 		answer: "one"
 	},
-
+/*
 	{	// 6
 		question: "Test Question",
 		choices: ["zero", "one", "two", "three"],
@@ -114,19 +115,67 @@ var trivialTrivia = {
 		choices: ["zero", "one", "two", "three"],
 		answer: "zero"
 	}
-
+*/
 	]
 }
 
 // FUNCTIONS
 
 // starting the game
-var letsPlay = function() {
+var pressStart = function() {
+	$(".pStart").on("click", function(){
+		$(".gameArea").empty();
+		qDisplay();
+	});
+}
 
+// timer functions
+// start the timer
+var tStart = function() {
+	// clear the timer area
+	$(".timerArea").empty();
+	// set the timer value
+	trivialTrivia.qTimer = 20;
+	// define the timer using setInterval
+	trivialTrivia.tTimer = setInterval(tDecrease, 1000);
+	//testing
+	//console.log(trivialTrivia.tTimer);
+	tDisplay();
+}
+
+// countdown the timer to zero
+var tDecrease = function() {
+	// decrement by 1
+	trivialTrivia.qTimer--;
+	// display the timer
+	tDisplay();
+	// stop the timer if it reachers zero
+	if(trivialTrivia.qTimer === 0) {
+		tStop();
+
+	}
+
+}
+
+// displaying the timer
+var tDisplay = function() {
+	// display timer on the DOM
+	$(".timerArea").html(": "trivialTrivia.qTimer + " seconds remaining");
+	//testing
+	//console.log(trivialTrivia.qTimer);
+}
+
+// stops the timer
+var tStop = function() {
+	// clears the timer
+	clearInterval(trivialTrivia.tTimer);
 }
 
 // display the current question
 var qDisplay = function() {
+	// start the timer for the question
+	tStart();
+
 
 }
 
@@ -134,6 +183,7 @@ var qDisplay = function() {
 var qCheck = function() {
 
 }
+
 //testing
 //for (i = 0; i < trivialTrivia.qArray.length; i++)
 //console.log(trivialTrivia.qArray[i]);
