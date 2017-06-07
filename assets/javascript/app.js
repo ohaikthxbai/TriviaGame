@@ -226,7 +226,7 @@ var gameOver = function() {
 	$("#newGame").on("click", function() {
 		$("#newGame").hide();
 		trivialTrivia.qRight = 0;
-		tribialTrivia.qWrong = 0;
+		trivialTrivia.qWrong = 0;
 		trivial.Trivia.qCount = 0;
 		presStart();		
 	})
