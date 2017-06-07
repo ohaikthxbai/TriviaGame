@@ -222,7 +222,7 @@ var gameOver = function() {
 	$(".gArea").append("Correct: " +trivialTrivia.qRight);
 	$(".gArea").append("<br>Incorrect: " +trivialTrivia.qWrong);
 	$(".gArea").append("<br>Questions Answered: " +trivialTrivia.qCount);
-	$(".gArea").append("<br><button> id='newGame'>Play Again?</button>");
+	$(".gArea").append("<br><button id='newGame'>Play Again?</button>");
 	$("#newGame").on("click", function() {
 		$("#newGame").hide();
 		trivialTrivia.qRight = 0;
