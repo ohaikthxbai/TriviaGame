@@ -227,7 +227,7 @@ var gameOver = function() {
 		$("#newGame").hide();
 		trivialTrivia.qRight = 0;
 		trivialTrivia.qWrong = 0;
-		trivial.Trivia.qCount = 0;
+		trivialTrivia.qCount = 0;
 		presStart();		
 	})
 }
