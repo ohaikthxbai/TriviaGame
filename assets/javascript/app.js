@@ -146,6 +146,7 @@ var tStop = function() {
 
 // display the question and choices
 var qDisplay = function() {
+	$('.gArea').empty();
     // define random question
     qRandom = trivialTrivia.qArray[Math.floor((Math.random() * trivialTrivia.qArray.length))];
     // make div element
@@ -189,29 +190,47 @@ var qCheck = function() {
 var correctQ = function() {
 	//increase counter
 	trivialTrivia.qRight++;
+	trivialTrivia.qCount++;
 	//testing
 	//console.log("Right!" + trivialTrivia.qRight);
 	//clear the game area
 	$(".gArea").empty();
+	$(".gArea").append("Correct!");
+
 	//display another random question
-	qDisplay();
+	setTimeout(function() {
+            qDisplay();
+        }, 3000);
 }
 
 // what to do if the selection is wrong
 var incorrectQ = function() {
 	trivialTrivia.qWrong++;
-	console.log("Wrong!" + trivialTrivia.qWrong);
+	trivialTrivia.qCount++;
+	//console.log("Wrong!" + trivialTrivia.qWrong);
 	$(".gArea").empty();
-	qDisplay();
+	$(".gArea").append("Wrong!");
+	setTimeout(function() {
+            qDisplay();
+        }, 3500);
 }
 
 // game results screen
 var gameOver = function() {
 	$(".gArea").empty();
 	$(".timerArea").empty();
+	$(".gArea").append("Correct: " +trivialTrivia.qRight);
+	$(".gArea").append("<br>Incorrect: " +trivialTrivia.qWrong);
+	$(".gArea").append("<br>Questions Answered: " +trivialTrivia.qCount);
+	$(".gArea").append("<br><button> id='newGame'>Play Again?</button>");
+	$("#newGame").on("click", function() {
+		$("#newGame").hide();
+		trivialTrivia.qRight = 0;
+		tribialTrivia.qWrong = 0;
+		trivial.Trivia.qCount = 0;
+		presStart();		
+	})
 }
-
-
 //testing
 // var qRandom = trivialTrivia.qArray[Math.floor((Math.random() * trivialTrivia.qArray.length))];
 // for (i = 0; i < qRandom.choices.length; i++) {
