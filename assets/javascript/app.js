@@ -228,7 +228,7 @@ var gameOver = function() {
 		trivialTrivia.qRight = 0;
 		trivialTrivia.qWrong = 0;
 		trivialTrivia.qCount = 0;
-		presStart();		
+		pressStart();		
 	})
 }
 //testing
